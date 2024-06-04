@@ -36,21 +36,21 @@ class Pipeline:
         print("******* INSIDE PIPELINE LLAMA_INDEX *********")
         
 
-        Settings.embed_model = OllamaEmbedding(
-            model_name="avr/sfr-embedding-mistral:f16",
-            base_url="http://localhost:11434",
-        )
-        # Settings.llm = OpenAILike(model="meta-llama/Meta-Llama-3-70B-Instruct", api_base="http://llama3-70b.e4-analytics.lan:8000/v1", api_key="fake",
-        #                           system_prompt="""You are an agent designed to answer queries over a single given paper. Do not rely on prior knowledge.
-        #                                             Please be as much detailed as possible."""
-        #                         )
-        Settings.llm = Ollama(model="mixtral:8x22b-instruct-v0.1-fp16")
+        # Settings.embed_model = OllamaEmbedding(
+        #     model_name="avr/sfr-embedding-mistral:f16",
+        #     base_url="http://localhost:11434",
+        # )
+        # # Settings.llm = OpenAILike(model="meta-llama/Meta-Llama-3-70B-Instruct", api_base="http://llama3-70b.e4-analytics.lan:8000/v1", api_key="fake",
+        # #                           system_prompt="""You are an agent designed to answer queries over a single given paper. Do not rely on prior knowledge.
+        # #                                             Please be as much detailed as possible."""
+        # #                         )
+        # Settings.llm = Ollama(model="mixtral:8x22b-instruct-v0.1-fp16")
 
-        splitter = SentenceSplitter(chunk_size=1024)
+        # splitter = SentenceSplitter(chunk_size=1024)
 
-        self.documents = SimpleDirectoryReader("./pipelines/data").load_data()
-        nodes = splitter.get_nodes_from_documents(self.documents)
-        self.index = VectorStoreIndex(nodes)
+        # self.documents = SimpleDirectoryReader("./pipelines/data").load_data()
+        # nodes = splitter.get_nodes_from_documents(self.documents)
+        # self.index = VectorStoreIndex(nodes)
 
         #self.index = VectorStoreIndex.from_documents(self.documents)
         # This function is called when the server is started.
